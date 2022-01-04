@@ -11,8 +11,7 @@ class FriendsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = #colorLiteral(red: 0, green: 0.9351515174, blue: 0.9963403344, alpha: 1)
     }
     
 

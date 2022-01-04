@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A3FD86F2C6AD85836B9D75E5 /* Pods_myVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66121758FEF81DE061304C0F /* Pods_myVK.framework */; };
 		D7855C3C2784FA440090D651 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7855C3B2784FA440090D651 /* FriendsViewController.swift */; };
+		D7855C3F2785014F0090D651 /* FriendsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7855C3E2785014F0090D651 /* FriendsViewController.storyboard */; };
+		D7855C44278505080090D651 /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7855C43278505080090D651 /* UIViewController + Storyboard.swift */; };
 		D7A1D04F278359F600BF5DD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1D04E278359F600BF5DD2 /* AppDelegate.swift */; };
 		D7A1D058278359FA00BF5DD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A1D057278359FA00BF5DD2 /* Assets.xcassets */; };
 		D7A1D05B278359FA00BF5DD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A1D059278359FA00BF5DD2 /* LaunchScreen.storyboard */; };
@@ -22,6 +24,8 @@
 		66121758FEF81DE061304C0F /* Pods_myVK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myVK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76364106912BE486C10447B7 /* Pods-myVK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myVK.debug.xcconfig"; path = "Target Support Files/Pods-myVK/Pods-myVK.debug.xcconfig"; sourceTree = "<group>"; };
 		D7855C3B2784FA440090D651 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		D7855C3E2785014F0090D651 /* FriendsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendsViewController.storyboard; sourceTree = "<group>"; };
+		D7855C43278505080090D651 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		D7A1D04B278359F600BF5DD2 /* myVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A1D04E278359F600BF5DD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7A1D057278359FA00BF5DD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +65,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D7855C412785015C0090D651 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				D7855C3B2784FA440090D651 /* FriendsViewController.swift */,
+				D7855C3E2785014F0090D651 /* FriendsViewController.storyboard */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		D7855C47278505230090D651 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D7855C43278505080090D651 /* UIViewController + Storyboard.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		D7A1D042278359F600BF5DD2 = {
 			isa = PBXGroup;
 			children = (
@@ -82,9 +103,11 @@
 		D7A1D04D278359F600BF5DD2 /* myVK */ = {
 			isa = PBXGroup;
 			children = (
+				D7A1D04E278359F600BF5DD2 /* AppDelegate.swift */,
+				D7855C412785015C0090D651 /* Friends */,
 				D7A1D076278379CB00BF5DD2 /* Authintication */,
 				D7A1D06B27835FA900BF5DD2 /* Services */,
-				D7A1D04E278359F600BF5DD2 /* AppDelegate.swift */,
+				D7855C47278505230090D651 /* Helpers */,
 				D7A1D057278359FA00BF5DD2 /* Assets.xcassets */,
 				D7A1D059278359FA00BF5DD2 /* LaunchScreen.storyboard */,
 				D7A1D05C278359FA00BF5DD2 /* Info.plist */,
@@ -104,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				D7A1D070278379A700BF5DD2 /* AuthViewController.swift */,
-				D7855C3B2784FA440090D651 /* FriendsViewController.swift */,
 				D7A1D073278379BA00BF5DD2 /* AuthViewController.storyboard */,
 			);
 			path = Authintication;
@@ -171,6 +193,7 @@
 			files = (
 				D7A1D05B278359FA00BF5DD2 /* LaunchScreen.storyboard in Resources */,
 				D7A1D074278379BA00BF5DD2 /* AuthViewController.storyboard in Resources */,
+				D7855C3F2785014F0090D651 /* FriendsViewController.storyboard in Resources */,
 				D7A1D058278359FA00BF5DD2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7855C3C2784FA440090D651 /* FriendsViewController.swift in Sources */,
+				D7855C44278505080090D651 /* UIViewController + Storyboard.swift in Sources */,
 				D7A1D06927835FA100BF5DD2 /* AuthService.swift in Sources */,
 				D7A1D071278379A700BF5DD2 /* AuthViewController.swift in Sources */,
 				D7A1D04F278359F600BF5DD2 /* AppDelegate.swift in Sources */,

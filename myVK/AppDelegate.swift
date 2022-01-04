@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthSeviceDelegate {
         window = UIWindow()
         self.authService = AuthService()
         authService.delegate = self
-        let authVC = UIStoryboard(name: "AuthViewController", bundle: nil).instantiateInitialViewController() as? AuthViewController
+        let authVC: AuthViewController = AuthViewController.loadFromStoryboard()
         
         window?.rootViewController = authVC
         window?.makeKeyAndVisible()
@@ -44,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthSeviceDelegate {
     
     func authServiceSignIn() {
         print(#function)
+        let friendsVC: FriendsViewController = FriendsViewController.loadFromStoryboard()
+        let navVC = UINavigationController(rootViewController: friendsVC)
+        window?.rootViewController = navVC
     }
     
     func authServiceDidSignInFail() {
