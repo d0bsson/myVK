@@ -41,7 +41,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="table" destination="1BQ-fI-jdc" id="2T2-0I-1rV"/>
+                        <outlet property="table" destination="1BQ-fI-jdc" id="vAN-0V-9WR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
