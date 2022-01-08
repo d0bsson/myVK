@@ -21,8 +21,6 @@
 		D705F465278A0BD200561700 /* NewsfeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D705F464278A0BD200561700 /* NewsfeedViewController.storyboard */; };
 		D705F468278A11F900561700 /* NewsfeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705F467278A11F900561700 /* NewsfeedCell.swift */; };
 		D705F46A278A122A00561700 /* NewsfeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D705F469278A122A00561700 /* NewsfeedCell.xib */; };
-		D7855C3C2784FA440090D651 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7855C3B2784FA440090D651 /* FriendsViewController.swift */; };
-		D7855C3F2785014F0090D651 /* FriendsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7855C3E2785014F0090D651 /* FriendsViewController.storyboard */; };
 		D7855C44278505080090D651 /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7855C43278505080090D651 /* UIViewController + Storyboard.swift */; };
 		D7A1D04F278359F600BF5DD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A1D04E278359F600BF5DD2 /* AppDelegate.swift */; };
 		D7A1D058278359FA00BF5DD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A1D057278359FA00BF5DD2 /* Assets.xcassets */; };
@@ -49,8 +47,6 @@
 		D705F464278A0BD200561700 /* NewsfeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsfeedViewController.storyboard; sourceTree = "<group>"; };
 		D705F467278A11F900561700 /* NewsfeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCell.swift; sourceTree = "<group>"; };
 		D705F469278A122A00561700 /* NewsfeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsfeedCell.xib; sourceTree = "<group>"; };
-		D7855C3B2784FA440090D651 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
-		D7855C3E2785014F0090D651 /* FriendsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendsViewController.storyboard; sourceTree = "<group>"; };
 		D7855C43278505080090D651 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		D7A1D04B278359F600BF5DD2 /* myVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A1D04E278359F600BF5DD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,15 +119,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		D7855C412785015C0090D651 /* Friends */ = {
-			isa = PBXGroup;
-			children = (
-				D7855C3B2784FA440090D651 /* FriendsViewController.swift */,
-				D7855C3E2785014F0090D651 /* FriendsViewController.storyboard */,
-			);
-			path = Friends;
-			sourceTree = "<group>";
-		};
 		D7855C47278505230090D651 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +151,6 @@
 				D705F455278A046300561700 /* Newsfeed */,
 				D705F4502789F49400561700 /* Models */,
 				D7A1D04E278359F600BF5DD2 /* AppDelegate.swift */,
-				D7855C412785015C0090D651 /* Friends */,
 				D7A1D076278379CB00BF5DD2 /* Authintication */,
 				D7A1D06B27835FA900BF5DD2 /* Services */,
 				D7855C47278505230090D651 /* Helpers */,
@@ -257,7 +243,6 @@
 				D7A1D05B278359FA00BF5DD2 /* LaunchScreen.storyboard in Resources */,
 				D7A1D074278379BA00BF5DD2 /* AuthViewController.storyboard in Resources */,
 				D705F465278A0BD200561700 /* NewsfeedViewController.storyboard in Resources */,
-				D7855C3F2785014F0090D651 /* FriendsViewController.storyboard in Resources */,
 				D705F46A278A122A00561700 /* NewsfeedCell.xib in Resources */,
 				D7A1D058278359FA00BF5DD2 /* Assets.xcassets in Resources */,
 			);
@@ -314,7 +299,6 @@
 			files = (
 				D705F4522789F4AF00561700 /* FeedResponse.swift in Sources */,
 				D705F461278A048700561700 /* NewsfeedViewController.swift in Sources */,
-				D7855C3C2784FA440090D651 /* FriendsViewController.swift in Sources */,
 				D7855C44278505080090D651 /* UIViewController + Storyboard.swift in Sources */,
 				D705F45D278A048700561700 /* NewsfeedPresenter.swift in Sources */,
 				D7A1D06927835FA100BF5DD2 /* AuthService.swift in Sources */,

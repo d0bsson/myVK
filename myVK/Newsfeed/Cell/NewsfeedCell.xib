@@ -22,8 +22,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aWU-bb-PMJ">
-                                <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                <rect key="frame" x="-2" y="0.0" width="42" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydd-1p-BLF">
                                 <rect key="frame" x="50" y="3" width="352" height="19"/>
@@ -40,12 +41,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray3Color"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xD-Uo-Nld">
                         <rect key="frame" x="20" y="67" width="403" height="121"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -89,7 +88,7 @@
                                 </subviews>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Drk-hm-0jz">
-                                <rect key="frame" x="363" y="0.0" width="80" height="42"/>
+                                <rect key="frame" x="356" y="0.0" width="80" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4755" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmG-c6-lZT">
@@ -106,7 +105,7 @@
                                 </subviews>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9F-Wo-LX1">
-                                <rect key="frame" x="17" y="0.0" width="80" height="42"/>
+                                <rect key="frame" x="10" y="0.0" width="80" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4755" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2H-NZ-BDx">
@@ -126,6 +125,16 @@
                     </view>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="commentsLabel" destination="xbW-Pf-Kp7" id="bTb-yl-MvK"/>
+                <outlet property="dateLabel" destination="Gpv-iy-lvo" id="huk-kY-gOT"/>
+                <outlet property="iconImageView" destination="aWU-bb-PMJ" id="lzW-ny-Ygl"/>
+                <outlet property="likesLabel" destination="d2H-NZ-BDx" id="B7f-pm-lb5"/>
+                <outlet property="nameLabel" destination="ydd-1p-BLF" id="OBC-hk-Kz5"/>
+                <outlet property="postLabel" destination="4xD-Uo-Nld" id="5S5-i6-ZpN"/>
+                <outlet property="sharesLabel" destination="4zN-IV-4a1" id="h97-Eo-DFY"/>
+                <outlet property="viewsLabel" destination="YmG-c6-lZT" id="eMP-09-W2w"/>
+            </connections>
             <point key="canvasLocation" x="192.0289855072464" y="88.392857142857139"/>
         </tableViewCell>
     </objects>
@@ -134,8 +143,8 @@
         <image name="like" width="24" height="24"/>
         <image name="repost" width="25" height="24"/>
         <image name="view" width="25" height="24"/>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
