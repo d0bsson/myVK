@@ -72,5 +72,8 @@ extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
         interactor?.makeRequest(request: .getFeed)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        422
+    }
     
 }
