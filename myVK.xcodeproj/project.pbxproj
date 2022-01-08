@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A3FD86F2C6AD85836B9D75E5 /* Pods_myVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66121758FEF81DE061304C0F /* Pods_myVK.framework */; };
+		D705F44D2789ADB300561700 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705F44C2789ADB300561700 /* NetworkService.swift */; };
+		D705F44F2789AE8C00561700 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705F44E2789AE8C00561700 /* API.swift */; };
+		D705F4522789F4AF00561700 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705F4512789F4AF00561700 /* FeedResponse.swift */; };
+		D705F4542789F7AF00561700 /* NetworkDataFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705F4532789F7AF00561700 /* NetworkDataFetching.swift */; };
 		D7855C3C2784FA440090D651 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7855C3B2784FA440090D651 /* FriendsViewController.swift */; };
 		D7855C3F2785014F0090D651 /* FriendsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7855C3E2785014F0090D651 /* FriendsViewController.storyboard */; };
 		D7855C44278505080090D651 /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7855C43278505080090D651 /* UIViewController + Storyboard.swift */; };
@@ -23,6 +27,10 @@
 		27629D3ED1ABFF4254EAC856 /* Pods-myVK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myVK.release.xcconfig"; path = "Target Support Files/Pods-myVK/Pods-myVK.release.xcconfig"; sourceTree = "<group>"; };
 		66121758FEF81DE061304C0F /* Pods_myVK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myVK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76364106912BE486C10447B7 /* Pods-myVK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myVK.debug.xcconfig"; path = "Target Support Files/Pods-myVK/Pods-myVK.debug.xcconfig"; sourceTree = "<group>"; };
+		D705F44C2789ADB300561700 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		D705F44E2789AE8C00561700 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D705F4512789F4AF00561700 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
+		D705F4532789F7AF00561700 /* NetworkDataFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetching.swift; sourceTree = "<group>"; };
 		D7855C3B2784FA440090D651 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		D7855C3E2785014F0090D651 /* FriendsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendsViewController.storyboard; sourceTree = "<group>"; };
 		D7855C43278505080090D651 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
@@ -65,6 +73,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D705F4502789F49400561700 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D705F4512789F4AF00561700 /* FeedResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D7855C412785015C0090D651 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +119,7 @@
 		D7A1D04D278359F600BF5DD2 /* myVK */ = {
 			isa = PBXGroup;
 			children = (
+				D705F4502789F49400561700 /* Models */,
 				D7A1D04E278359F600BF5DD2 /* AppDelegate.swift */,
 				D7855C412785015C0090D651 /* Friends */,
 				D7A1D076278379CB00BF5DD2 /* Authintication */,
@@ -119,6 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				D7A1D06827835FA100BF5DD2 /* AuthService.swift */,
+				D705F44C2789ADB300561700 /* NetworkService.swift */,
+				D705F44E2789AE8C00561700 /* API.swift */,
+				D705F4532789F7AF00561700 /* NetworkDataFetching.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -247,11 +267,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D705F4522789F4AF00561700 /* FeedResponse.swift in Sources */,
 				D7855C3C2784FA440090D651 /* FriendsViewController.swift in Sources */,
 				D7855C44278505080090D651 /* UIViewController + Storyboard.swift in Sources */,
 				D7A1D06927835FA100BF5DD2 /* AuthService.swift in Sources */,
 				D7A1D071278379A700BF5DD2 /* AuthViewController.swift in Sources */,
+				D705F44D2789ADB300561700 /* NetworkService.swift in Sources */,
 				D7A1D04F278359F600BF5DD2 /* AppDelegate.swift in Sources */,
+				D705F4542789F7AF00561700 /* NetworkDataFetching.swift in Sources */,
+				D705F44F2789AE8C00561700 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 import Foundation
 import VK_ios_sdk
 
-protocol AuthSeviceDelegate: class {
+protocol AuthSeviceDelegate: AnyObject {
     func authServiceShouldShow(_ viewController: UIViewController)
     func authServiceSignIn()
     func authServiceDidSignInFail()
@@ -21,6 +21,10 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     weak var delegate: AuthSeviceDelegate?
     
+    var token: String? {
+        VKSdk.accessToken().accessToken
+    }
+    
     override init() {
         vkSdk = VKSdk.initialize(withAppId: appId)
         super.init()
@@ -30,7 +34,7 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     }
     
     func wakeUpSession() {
-        let scope = ["offline", "wall", "friends"]
+        let scope = ["wall", "friends"]
         
         VKSdk.wakeUpSession(scope) { [delegate] (state, error) in
             if state == VKAuthorizationState.authorized {

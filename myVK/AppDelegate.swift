@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthSeviceDelegate {
         return true
     }
     
-    // MERK: - AuthServiceDelegate
+    // MARK: - AuthServiceDelegate
     
     func authServiceShouldShow(_ viewController: UIViewController) {
         print(#function)
