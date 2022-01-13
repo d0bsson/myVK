@@ -46,6 +46,7 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
         setup()
         
         table.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reuseId)
+        table.register(NewsFeedCodeCell.self, forCellReuseIdentifier: NewsFeedCodeCell.reuseId)
         table.separatorStyle = .none
         
         interactor?.makeRequest(request: .getNewsFeed)
@@ -67,16 +68,21 @@ extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NewsfeedCell.reuseId, for: indexPath) as! NewsfeedCell
-        let cellViewModel = feedViewModel.cells[indexPath.row]
-        cell.backgroundColor = UIColor(
-            red: 77/255,
-            green: 113/255,
-            blue: 152/255,
-            alpha: 1
-        )
-        cell.iconImageView.layer.cornerRadius = cell.iconImageView.frame.height / 2
-        cell.set(viewModel: cellViewModel)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: NewsfeedCell.reuseId, for: indexPath) as! NewsfeedCell
+//        let cellViewModel = feedViewModel.cells[indexPath.row]
+//        cell.backgroundColor = UIColor(
+//            red: 77/255,
+//            green: 113/255,
+//            blue: 152/255,
+//            alpha: 1
+//        )
+//        cell.iconImageView.layer.cornerRadius = cell.iconImageView.frame.height / 2
+//        cell.set(viewModel: cellViewModel)
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedCodeCell.reuseId, for: indexPath) as! NewsFeedCodeCell
+        var content = cell.defaultContentConfiguration()
+        content.text = "123"
+        cell.contentConfiguration = content
+        
 
         return cell
     }

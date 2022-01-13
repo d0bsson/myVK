@@ -64,7 +64,7 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
             postLabelFrame.size = CGSize(width: width, height: height)
         }
         
-//        MARK: - Work with AttachmentFrame
+//        MARK: - Work with  AttachmentFrame
         
         let attachmentTop = postLabelFrame.size == CGSize.zero
             ? Constants.postLabelInsets.top
