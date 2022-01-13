@@ -59,7 +59,7 @@
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u9D-u2-Qe0" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="197" width="427" height="33"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oGl-wh-IDE">
                                         <rect key="frame" x="80" y="0.0" width="80" height="42"/>
@@ -142,7 +142,7 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="bottomView" destination="u9D-u2-Qe0" id="abw-rX-eCG"/>
+                <outlet property="bottomView" destination="u9D-u2-Qe0" id="1xm-lb-HhJ"/>
                 <outlet property="cardView" destination="DWx-sH-DCa" id="hom-nf-KwI"/>
                 <outlet property="commentsLabel" destination="xbW-Pf-Kp7" id="bTb-yl-MvK"/>
                 <outlet property="dateLabel" destination="Gpv-iy-lvo" id="huk-kY-gOT"/>
