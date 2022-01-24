@@ -68,22 +68,13 @@ extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: NewsfeedCell.reuseId, for: indexPath) as! NewsfeedCell
-//        let cellViewModel = feedViewModel.cells[indexPath.row]
-//        cell.backgroundColor = UIColor(
-//            red: 77/255,
-//            green: 113/255,
-//            blue: 152/255,
-//            alpha: 1
-//        )
-//        cell.iconImageView.layer.cornerRadius = cell.iconImageView.frame.height / 2
-//        cell.set(viewModel: cellViewModel)
+        //        let cell = tableView.dequeueReusableCell(withIdentifier: NewsfeedCell.reuseId, for: indexPath) as! NewsfeedCell
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedCodeCell.reuseId, for: indexPath) as! NewsFeedCodeCell
-        var content = cell.defaultContentConfiguration()
-        content.text = "123"
-        cell.contentConfiguration = content
-        
-
+        let cellViewModel = feedViewModel.cells[indexPath.row]
+        cell.set(viewModel: cellViewModel)
+        //        var content = cell.defaultContentConfiguration()
+        //        content.text = "123"
+        //        cell.contentConfiguration = content
         return cell
     }
     
@@ -92,5 +83,6 @@ extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cellViewModel = feedViewModel.cells[indexPath.row]
         return cellViewModel.sizes.totalHeight
+//        return 212
     }
 }
