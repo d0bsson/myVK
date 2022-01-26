@@ -17,28 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SFZ-3j-NiG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="1BQ-fI-jdc">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <tableView key="tableFooterView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="1BQ-fI-jdc">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <connections>
-                                        <outlet property="dataSource" destination="Y6W-OH-hqX" id="qD5-bc-te7"/>
-                                        <outlet property="delegate" destination="Y6W-OH-hqX" id="XOM-s8-uy6"/>
-                                    </connections>
-                                </tableView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="qD5-bc-te7"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="XOM-s8-uy6"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" red="0.30196078431372547" green="0.44313725490196076" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="SFZ-3j-NiG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="37s-pQ-JaG"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SFZ-3j-NiG" secondAttribute="trailing" id="4Fn-rI-FPX"/>
-                            <constraint firstItem="SFZ-3j-NiG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="KJ8-LT-obM"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="SFZ-3j-NiG" secondAttribute="bottom" id="PnM-lg-oUY"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="table" destination="1BQ-fI-jdc" id="vAN-0V-9WR"/>
@@ -46,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="104" y="82"/>
+            <point key="canvasLocation" x="102.89855072463769" y="81.521739130434796"/>
         </scene>
     </scenes>
     <resources>

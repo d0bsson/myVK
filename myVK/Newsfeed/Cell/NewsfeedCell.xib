@@ -160,8 +160,8 @@
     <resources>
         <image name="comment" width="24" height="24"/>
         <image name="like" width="24" height="24"/>
-        <image name="repost" width="25" height="24"/>
-        <image name="view" width="25" height="24"/>
+        <image name="repost" width="24" height="24"/>
+        <image name="view" width="20" height="20"/>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

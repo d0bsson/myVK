@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "photo_2022-01-08 23.47.36.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "eye@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

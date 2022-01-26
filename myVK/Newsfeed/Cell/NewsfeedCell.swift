@@ -55,6 +55,19 @@ class NewsfeedCell: UITableViewCell {
     
     @IBOutlet weak var bottomView: UIView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
+        iconImageView.clipsToBounds = true
+        
+        cardView.layer.cornerRadius = 10
+        cardView.clipsToBounds = true
+        
+        backgroundColor = .clear
+        selectionStyle = .none
+    }
+    
     override func prepareForReuse() {
         iconImageView.set(imageURL: nil)
         postImageView.set(imageURL: nil)

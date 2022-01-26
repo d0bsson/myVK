@@ -12,7 +12,7 @@ protocol NewsfeedDisplayLogic: AnyObject {
     func displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData)
 }
 
-class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
+class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCodeCellDelegate {
     
     var interactor: NewsfeedBusinessLogic?
     var router: (NSObjectProtocol & NewsfeedRoutingLogic)?
@@ -40,15 +40,14 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
     
     
     // MARK: View lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         
         table.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reuseId)
         table.register(NewsFeedCodeCell.self, forCellReuseIdentifier: NewsFeedCodeCell.reuseId)
-        table.separatorStyle = .none
-        
+        table.layer.cornerRadius = 45
+        view.backgroundColor = .blue
         interactor?.makeRequest(request: .getNewsFeed)
     }
     
@@ -59,6 +58,12 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic {
             table.reloadData()
         }
     }
+    
+    // MARK: NewsfeedCodeCellDelegate
+    
+    func revealPost(for cell: NewsFeedCodeCell) {
+        print("123")
+    }
 }
 
 extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
@@ -68,21 +73,16 @@ extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        let cell = tableView.dequeueReusableCell(withIdentifier: NewsfeedCell.reuseId, for: indexPath) as! NewsfeedCell
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedCodeCell.reuseId, for: indexPath) as! NewsFeedCodeCell
         let cellViewModel = feedViewModel.cells[indexPath.row]
         cell.set(viewModel: cellViewModel)
-        //        var content = cell.defaultContentConfiguration()
-        //        content.text = "123"
-        //        cell.contentConfiguration = content
+        cell.layer.cornerRadius = 222
+        cell.delegate = self
         return cell
     }
-    
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cellViewModel = feedViewModel.cells[indexPath.row]
         return cellViewModel.sizes.totalHeight
-//        return 212
     }
 }

@@ -38,19 +38,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthSeviceDelegate {
     // MARK: - AuthServiceDelegate
     
     func authServiceShouldShow(_ viewController: UIViewController) {
-        print(#function)
         window?.rootViewController?.present(viewController, animated: true, completion: nil)
     }
     
     func authServiceSignIn() {
-        print(#function)
         let friendsVC: NewsfeedViewController = NewsfeedViewController.loadFromStoryboard()
         let navVC = UINavigationController(rootViewController: friendsVC)
         window?.rootViewController = navVC
     }
     
     func authServiceDidSignInFail() {
-        print(#function)
+
     }
 
 }
