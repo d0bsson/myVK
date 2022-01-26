@@ -43,12 +43,9 @@ final class NewsFeedCodeCell: UITableViewCell {
     
     let moreTextButton: UIButton = {
         let button = UIButton()
+        
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        button.setTitleColor(UIColor(red: 102,
-                                     green: 159,
-                                     blue: 212,
-                                     alpha: 1),
-                             for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
         button.contentHorizontalAlignment = .left
         button.contentVerticalAlignment = .center
         button.setTitle("Показать полностью...", for: .normal)
@@ -195,8 +192,10 @@ final class NewsFeedCodeCell: UITableViewCell {
         iconImageView.layer.cornerRadius = Constants.topViewHeight / 2
         iconImageView.clipsToBounds = true
         
+        moreTextButton.addTarget(self, action: #selector(moreTextButtonTouch), for: .touchUpInside)
+        
         backgroundColor = .clear
-//        selectionStyle = .none
+        selectionStyle = .none
         cardView.layer.cornerRadius = 10
         cardView.clipsToBounds = true
         
@@ -205,6 +204,12 @@ final class NewsFeedCodeCell: UITableViewCell {
         overlayThirdLayeronTopView()
         overlayThirdLayerOnBottom()
         overlayFourhLayerOnBottomViews()
+    }
+    
+    @objc func moreTextButtonTouch() {
+        print("13")
+        delegate?.revealPost(for: self)
+        print("123")
     }
     
     func set(viewModel: FeedCellViewModel) {
@@ -220,6 +225,7 @@ final class NewsFeedCodeCell: UITableViewCell {
         postLabel.frame = viewModel.sizes.postLabelFrame
         postImageView.frame = viewModel.sizes.attachmentFrame
         bottomView.frame = viewModel.sizes.bottomViewFrame
+        moreTextButton.frame = viewModel.sizes.moreTextButtonFrame
         
         if let photoAttachment = viewModel.photoAttachment {
             postImageView.set(imageURL: photoAttachment.photoUrlString)
