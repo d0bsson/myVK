@@ -207,7 +207,7 @@ final class NewsFeedCodeCell: UITableViewCell {
     
     @objc func moreTextButtonTouch() {
         print("13")
-//        delegate?.revealPost(for: self)
+        delegate?.revealPost(for: self)
         print("123")
     }
     
