@@ -191,7 +191,7 @@ final class NewsFeedCodeCell: UITableViewCell {
         
         iconImageView.layer.cornerRadius = Constants.topViewHeight / 2
         iconImageView.clipsToBounds = true
-        
+        //11
         moreTextButton.addTarget(self, action: #selector(moreTextButtonTouch), for: .touchUpInside)
         
         backgroundColor = .clear
