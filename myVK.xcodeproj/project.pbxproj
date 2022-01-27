@@ -166,9 +166,9 @@
 		D7A1D04D278359F600BF5DD2 /* myVK */ = {
 			isa = PBXGroup;
 			children = (
+				D7A1D04E278359F600BF5DD2 /* AppDelegate.swift */,
 				D705F455278A046300561700 /* Newsfeed */,
 				D705F4502789F49400561700 /* Models */,
-				D7A1D04E278359F600BF5DD2 /* AppDelegate.swift */,
 				D7A1D076278379CB00BF5DD2 /* Authintication */,
 				D7A1D06B27835FA900BF5DD2 /* Services */,
 				D7855C47278505230090D651 /* Helpers */,
