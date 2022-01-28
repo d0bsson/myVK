@@ -42,8 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthSeviceDelegate {
     }
     
     func authServiceSignIn() {
-        let friendsVC: NewsfeedViewController = NewsfeedViewController.loadFromStoryboard()
-        let navVC = UINavigationController(rootViewController: friendsVC)
+        let feed: NewsfeedViewController = NewsfeedViewController.loadFromStoryboard()
+        let navVC = UINavigationController(rootViewController: feed)
         window?.rootViewController = navVC
     }
     

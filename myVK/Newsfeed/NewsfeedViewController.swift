@@ -1,79 +1,84 @@
 //
 //  NewsfeedViewController.swift
-//  myVK
+//  VKNewsFeed
 //
-//  Created by Дэвид Бердников on 08.01.2022.
-//  Copyright (c) 2022 ___ORGANIZATIONNAME___. All rights reserved.
+//  Created by Алексей Пархоменко on 15/03/2019.
+//  Copyright (c) 2019 Алексей Пархоменко. All rights reserved.
 //
 
 import UIKit
 
 protocol NewsfeedDisplayLogic: AnyObject {
-    func displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData)
+  func displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData)
 }
 
 class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsfeedCodeCellDelegate {
     
-    var interactor: NewsfeedBusinessLogic?
-    var router: (NSObjectProtocol & NewsfeedRoutingLogic)?
+  var interactor: NewsfeedBusinessLogic?
+  var router: (NSObjectProtocol & NewsfeedRoutingLogic)?
     
     private var feedViewModel = FeedViewModel.init(cells: [])
-    
+  
     @IBOutlet weak var table: UITableView!
     
     // MARK: Setup
+  
+  private func setup() {
+    let viewController        = self
+    let interactor            = NewsfeedInteractor()
+    let presenter             = NewsfeedPresenter()
+    let router                = NewsfeedRouter()
+    viewController.interactor = interactor
+    viewController.router     = router
+    interactor.presenter      = presenter
+    presenter.viewController  = viewController
+    router.viewController     = viewController
+  }
+  
+  // MARK: Routing
+  
+
+  
+  // MARK: View lifecycle
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setup()
     
-    private func setup() {
-        let viewController        = self
-        let interactor            = NewsfeedInteractor()
-        let presenter             = NewsfeedPresenter()
-        let router                = NewsfeedRouter()
-        viewController.interactor = interactor
-        viewController.router     = router
-        interactor.presenter      = presenter
-        presenter.viewController  = viewController
-        router.viewController     = viewController
+    table.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reuseId)
+    table.register(NewsfeedCodeCell.self, forCellReuseIdentifier: NewsfeedCodeCell.reuseId)
+    
+    table.separatorStyle = .none
+    table.backgroundColor = .clear
+    view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+    
+      interactor?.makeRequest(request: Newsfeed.Model.Request.RequestType.getNewsFeed)
+  }
+  
+  func displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData) {
+
+    switch viewModel {
+    case .displayNewsFeed(let feedViewModel):
+        self.feedViewModel = feedViewModel
+        table.reloadData()
     }
-    
-    // MARK: Routing
-    
-    
-    
-    // MARK: View lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setup()
-        
-        table.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reuseId)
-        table.register(NewsFeedCodeCell.self, forCellReuseIdentifier: NewsFeedCodeCell.reuseId)
-        table.layer.cornerRadius = 45
-        view.backgroundColor = .blue
-        interactor?.makeRequest(request: .getNewsFeed)
-    }
-    
-    func displayData(viewModel: Newsfeed.Model.ViewModel.ViewModelData) {
-        switch viewModel {
-        case .displayNewsFeed(feedViewModel: let feedViewModel):
-            self.feedViewModel = feedViewModel
-            table.reloadData()
-        }
-    }
+  }
     
     // MARK: NewsfeedCodeCellDelegate
     
-    func revealPost(for cell: NewsFeedCodeCell) {
-        print("123")
+    func revealPost(for cell: NewsfeedCodeCell) {
+        print("54321")
     }
 }
 
 extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        feedViewModel.cells.count
+        return feedViewModel.cells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedCodeCell.reuseId, for: indexPath) as! NewsFeedCodeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewsfeedCodeCell.reuseId, for: indexPath) as! NewsfeedCodeCell
         let cellViewModel = feedViewModel.cells[indexPath.row]
         cell.set(viewModel: cellViewModel)
         cell.delegate = self
@@ -84,4 +89,5 @@ extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
         let cellViewModel = feedViewModel.cells[indexPath.row]
         return cellViewModel.sizes.totalHeight
     }
+    
 }
