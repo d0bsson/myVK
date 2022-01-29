@@ -9,11 +9,13 @@
 import Foundation
 import UIKit
 
-protocol NewsfeedCodeCellDelegate: class {
+protocol NewsfeedCodeCellDelegate: AnyObject {
     func revealPost(for cell: NewsfeedCodeCell)
 }
 
 final class NewsfeedCodeCell: UITableViewCell {
+    
+    var buttonTapCallback: () -> ()  = { }
     
     static let reuseId = "NewsfeedCodeCell"
     
@@ -22,7 +24,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     // Первый слой
     
     let cardView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -31,13 +33,13 @@ final class NewsfeedCodeCell: UITableViewCell {
     // Второй слой
     
     let topView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     let postlabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.numberOfLines = 0
         label.font = Constants.postLabelFont
         label.textColor = #colorLiteral(red: 0.227329582, green: 0.2323184013, blue: 0.2370472848, alpha: 1)
@@ -45,7 +47,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     }()
     
     let moreTextButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         button.setTitleColor(#colorLiteral(red: 0.4012392163, green: 0.6231879592, blue: 0.8316264749, alpha: 1), for: .normal)
         button.contentHorizontalAlignment = .left
@@ -61,7 +63,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     }()
     
     let bottomView: UIView = {
-       let view = UIView()
+        let view = UIView()
         return view
     }()
     
@@ -74,7 +76,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     }()
     
     let nameLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         label.numberOfLines = 0
@@ -83,7 +85,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     }()
     
     let dateLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = #colorLiteral(red: 0.5768421292, green: 0.6187390685, blue: 0.664434731, alpha: 1)
         label.font = UIFont.systemFont(ofSize: 12)
@@ -119,7 +121,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     // Четвертый слой на bottomView
     
     let likesImage: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "like")
         return imageView
@@ -147,7 +149,7 @@ final class NewsfeedCodeCell: UITableViewCell {
     }()
     
     let likesLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = #colorLiteral(red: 0.5768421292, green: 0.6187390685, blue: 0.664434731, alpha: 1)
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
@@ -199,16 +201,16 @@ final class NewsfeedCodeCell: UITableViewCell {
         cardView.layer.cornerRadius = 10
         cardView.clipsToBounds = true
         
-        moreTextButton.addTarget(self, action: #selector(moreTextButtonTouch), for: .touchUpInside)
+        moreTextButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         
-        overlayFirstLayer() // первый слой
-        overlaySecondLayer() // второй слой
-        overlayThirdLayerOnTopView() // третий слой на topView
-        overlayThirdLayerOnBottomView() // третий слой на bottomView
-        overlayFourthLayerOnBottomViewViews() // четвертый слой на bottomViewViews
+        overlayFirstLayer()
+        overlaySecondLayer()
+        overlayThirdLayerOnTopView()
+        overlayThirdLayerOnBottomView()
+        overlayFourthLayerOnBottomViewViews()
     }
     
-    @objc func moreTextButtonTouch() {
+    @objc func didTapButton() {
         delegate?.revealPost(for: self)
     }
     
@@ -284,24 +286,24 @@ final class NewsfeedCodeCell: UITableViewCell {
         
         // commentsView constraints
         commentsView.anchor(top: bottomView.topAnchor,
-                         leading: likesView.trailingAnchor,
-                         bottom: nil,
-                         trailing: nil,
-                         size: CGSize(width: Constants.bottomViewViewWight, height: Constants.bottomViewViewHeight))
-        
-        // sharesView constraints
-        sharesView.anchor(top: bottomView.topAnchor,
-                            leading: commentsView.trailingAnchor,
+                            leading: likesView.trailingAnchor,
                             bottom: nil,
                             trailing: nil,
                             size: CGSize(width: Constants.bottomViewViewWight, height: Constants.bottomViewViewHeight))
         
+        // sharesView constraints
+        sharesView.anchor(top: bottomView.topAnchor,
+                          leading: commentsView.trailingAnchor,
+                          bottom: nil,
+                          trailing: nil,
+                          size: CGSize(width: Constants.bottomViewViewWight, height: Constants.bottomViewViewHeight))
+        
         // viewsView constraints
         viewsView.anchor(top: bottomView.topAnchor,
-                          leading: nil,
-                          bottom: nil,
-                          trailing: bottomView.trailingAnchor,
-                          size: CGSize(width: Constants.bottomViewViewWight, height: Constants.bottomViewViewHeight))
+                         leading: nil,
+                         bottom: nil,
+                         trailing: bottomView.trailingAnchor,
+                         size: CGSize(width: Constants.bottomViewViewWight, height: Constants.bottomViewViewHeight))
     }
     
     private func overlayThirdLayerOnTopView() {
@@ -344,8 +346,8 @@ final class NewsfeedCodeCell: UITableViewCell {
         topView.heightAnchor.constraint(equalToConstant: Constants.topViewHeight).isActive = true
     }
     
-     private func overlayFirstLayer() {
-        addSubview(cardView)
+    private func overlayFirstLayer() {
+        contentView.addSubview(cardView)
         
         // cardView constraints
         cardView.fillSuperview(padding: Constants.cardInsets)
